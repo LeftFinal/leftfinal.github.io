@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Polar Privacy Policy</title>
+<meta name="description" content="How Polar handles your data.">
+<style>
+  :root { --bg: #ffffff; --fg: #1b1d21; --muted: #5b616b; --line: #e3e5e8; --accent: #2f6fde; --code: #f3f4f6; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #15171a; --fg: #e6e8eb; --muted: #9aa1ab; --line: #2b2f35; --accent: #7aa7ff; --code: #22252a; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 780px; margin: 0 auto; padding: 40px 16px 80px; }
+  h1 { font-size: 2rem; margin: 0 0 4px; }
+  h2 { font-size: 1.25rem; margin: 40px 0 8px; padding-top: 8px; border-top: 1px solid var(--line); }
+  h3 { font-size: 1.05rem; margin: 24px 0 4px; }
+  p, li { margin: 8px 0; }
+  a { color: var(--accent); }
+  .meta { color: var(--muted); margin: 0 0 24px; }
+  .table-wrap { overflow-x: auto; margin: 16px 0; }
+  table { border-collapse: collapse; width: 100%; font-size: 0.93rem; }
+  th, td { text-align: left; vertical-align: top; padding: 8px 10px; border-bottom: 1px solid var(--line); }
+  th { color: var(--muted); font-weight: 600; }
+  td:nth-child(2) { white-space: nowrap; font-weight: 600; }
+  code { background: var(--code); padding: 1px 5px; border-radius: 4px; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<main>
+<h1>Polar Privacy Policy</h1>
+<p class="meta">Effective 28 October 2026</p>
+
+<p>Polar is an end-to-end encrypted chat app for communities, direct messages and voice calls. It is
+run by LeftFinal ("we", "us"). This policy covers the Polar apps for Android, iOS and Windows
+and the Polar server we run, which they connect to by default. The Polar server can also be run by
+others; if you connect to a server someone else runs, that operator holds the data described here
+and their own privacy policy applies.</p>
+
+<p>The short version: <strong>we cannot read your messages, your profile or your communities' names
+and channels.</strong> They are encrypted on your device before they leave it, and only the people
+you talk to hold the keys. The server keeps only what it needs to deliver messages and enforce
+permissions, and for no longer than it needs to.</p>
+
+<h2>1. What the server can and cannot see</h2>
+<div class="table-wrap">
+<table>
+<thead><tr><th>Data</th><th>Server sees?</th><th>Notes</th></tr></thead>
+<tbody>
+<tr><td>Message text, reactions, edits, embeds, attachments</td><td>No</td><td>Encrypted end to end on your device</td></tr>
+<tr><td>Profile (display name, avatar, bio, pronouns)</td><td>No</td><td>Encrypted with your profile key, shared only with people you talk to</td></tr>
+<tr><td>Community name, icon, channel names and topics, role names and colours, emoji</td><td>No</td><td>Encrypted community state</td></tr>
+<tr><td>Usernames</td><td>Yes</td><td>The public handle people use to find you</td></tr>
+<tr><td>Your user ID and identity public key</td><td>Yes (public)</td><td>Published in a key transparency log so others can check they are talking to you</td></tr>
+<tr><td>Which of your devices are in which encrypted group</td><td>Yes</td><td>Needed to route messages</td></tr>
+<tr><td>Community membership, roles as permission settings, channel IDs and types</td><td>Yes</td><td>Needed to enforce permissions</td></tr>
+<tr><td>Who sent a message, when, its size, which group and channel</td><td>Yes, briefly</td><td>Until every device it is owed to has collected it, and at most 30 days. For a message that can be reported, the sender, group, channel and time are kept for a year so a report can be checked. Sizes are padded to hide the exact length</td></tr>
+<tr><td>Contacts and friends list</td><td>No</td><td>Kept on your devices and in your encrypted backup. The server only sees that a direct message group exists</td></tr>
+<tr><td>Read state, unread counts, settings</td><td>No</td><td>Synced between your devices encrypted. Read receipts are encrypted messages</td></tr>
+<tr><td>How far each person in a direct or group message has received it</td><td>Yes</td><td>The last message each person's devices acknowledged, and when, to the second. Shown only to the people in that conversation</td></tr>
+<tr><td>IP addresses</td><td>Briefly</td><td>Not stored. Rate limits use a keyed hash that changes daily and expires within 24 hours</td></tr>
+<tr><td>Email address (optional)</td><td>Yes, if you add one</td><td>Encrypted at rest. Used to confirm the address and to ask for an identity reset after a waiting period, never to reset a password</td></tr>
+<tr><td>Voice participation</td><td>Yes</td><td>Who is in which voice room, and when. Shown only to members who can see the channel. Deleted 15 minutes after the call ends</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>2. Other data we handle</h2>
+<h3>Account and sign-in</h3>
+<p>Your password never reaches us. Sign-in uses the OPAQUE protocol, so the server stores only a
+record it can check a sign-in against, not the password or anything it could be recovered from.
+We store your devices' public keys and a session for each signed-in device, with the day it was
+last active.</p>
+
+<h3>Attachments and backups</h3>
+<p>Files you send are encrypted on your device before upload, so we store only ciphertext. An upload
+that is never sent is deleted after 24 hours. A sent file is kept until the devices it is owed to
+have fetched it, and at most 30 days. If you turn on encrypted backup, we keep your last three
+backup versions; we cannot read them. A community can choose to share encrypted message history
+with new members; that history is kept as the community's settings say and deleted when sharing is
+turned off or the channel is deleted.</p>
+
+<h3>Presence and typing</h3>
+<p>Your online status is shared with people you share a community or direct message with, unless
+you turn it off. It is held in memory only and expires within 90 seconds. Typing indicators are
+encrypted and never stored.</p>
+
+<h3>Notifications</h3>
+<p>To send notifications we store your device's push token, encrypted at rest. Notifications carry
+no names, IDs or message content in the clear; they contain only an encrypted payload. Tokens the
+push service reports as invalid are deleted.</p>
+
+<h3>Reports</h3>
+<p>If you report a message, the app sends us that message's text, and any surrounding messages you
+choose to include, so our safety team can review it. The app tells you this before you send. The
+text revealed in a report is deleted 180 days after the report is resolved, and resolved or closed
+reports are deleted after a year. A report may be kept longer under a legal hold, for example where
+the law requires us to preserve evidence of child sexual abuse material.</p>
+
+<h3>Server logs</h3>
+<p>Logs contain no user IDs, usernames or IP addresses and are kept for 7 days. Metrics contain no
+identifiers.</p>
+
+<h2>3. Permissions the Android app asks for</h2>
+<ul>
+<li><strong>Microphone</strong>: for voice calls and voice notes, only while you use them.</li>
+<li><strong>Notifications</strong>: to tell you about new messages and incoming calls.</li>
+<li><strong>Network access</strong>: to connect to the Polar server.</li>
+<li><strong>Battery optimisation exemption</strong> (optional): so notifications arrive promptly.</li>
+</ul>
+<p>Photos you take from the message box are taken with your phone's own camera app and are not saved
+to your gallery; Polar does not hold the camera permission. Files you attach are picked with the
+system file picker. Polar contains no advertising or analytics SDKs.</p>
+
+<h2>4. Who else receives data</h2>
+<ul>
+<li><strong>Our hosting provider</strong>, which runs the server and stores the data above. The server is hosted in South Africa.</li>
+<li><strong>Google (Firebase Cloud Messaging)</strong> on Android and <strong>Apple (APNs)</strong> on iOS,
+to deliver notifications. They see your device's push token, the timing and an encrypted payload.
+On Android without Google services you can use UnifiedPush, and the distributor you choose sees the same.</li>
+<li><strong>Klipy</strong>, if you search for GIFs. Our server makes the search on your behalf, so Klipy
+sees your search words but not your IP address or account.</li>
+<li><strong>Our email provider</strong>, if you add an email address, to send confirmation and reset emails.</li>
+</ul>
+<p>We do not sell your data, use it for advertising, or share it with anyone else unless the law
+requires it. If we receive a lawful demand, we can disclose only what is in the table above; we do
+not have your message content.</p>
+
+<h2>5. Your rights</h2>
+<ul>
+<li><strong>Access</strong>: you can export everything the server holds about you as a file from
+Settings in the app. Your messages are on your devices and can be exported there.</li>
+<li><strong>Deletion</strong>: you can delete your account in Settings. It is deleted 30 days later;
+until then you can cancel. Deleting removes your devices, sessions, sent messages still waiting
+for delivery, files, backups and sign-in record. Communities you own are deleted unless you hand
+them to someone else first. Records needed to keep shared community history consistent are kept
+with your identity replaced by a "deleted user" marker, and reports involving you are kept with your
+ID and any note you wrote removed.</li>
+<li><strong>Correction and objection</strong>: you can change your username, profile and email in the
+app at any time, or contact us.</li>
+</ul>
+<p>We process your data to provide the service you signed up for and, for abuse prevention, in our
+legitimate interest in keeping Polar safe. Depending on where you live you may have further rights
+under the GDPR or South Africa's POPIA, including the right to complain to your data protection
+authority (in South Africa, the Information Regulator).</p>
+
+<h2>6. Security</h2>
+<p>Messages and calls use end-to-end encryption (MLS for messages, encrypted media frames for calls),
+connections use TLS, and data that the server must hold is encrypted at rest where possible. No
+system is perfectly secure, but we design Polar so that a breach of our servers would not expose
+your messages.</p>
+
+<h2>7. Children</h2>
+<p>You must be at least 13 to use Polar, or 16 where the law requires it. We do not knowingly
+collect data from younger children. If you believe a child is using Polar, contact us and we will
+delete the account.</p>
+
+<h2>8. Changes</h2>
+<p>If we change this policy we will update the date at the top, and for significant changes we will
+tell you in the app.</p>
+
+<h2>9. Contact</h2>
+<p>LeftFinal<br>Email: <a href="mailto:polar.xhc30@passmail.com">polar.xhc30@passmail.com</a></p>
+</main>
+</body>
+</html>
